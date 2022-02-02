@@ -9,14 +9,14 @@ import (
 	"github.com/gorilla/mux"
 )
 
-const INDEX = `<!DOCTYPE html>
+const HTML = `<!DOCTYPE html>
 <html>
   <head>
-    <title>Go Sample</title>
+    <title>Golang Sample</title>
     <link rel='stylesheet' href='/stylesheets/style.css'/>
   </head>
   <body>
-    <h1>Go on AWS App Runner with Cloud Native Buildpacks</h1>
+    <h1>Golang on AWS App Runner with Cloud Native Buildpacks</h1>
     <p>This application is running as a container on AWS App Runner and was built using Cloud Native Buildpacks!</p>
   </body>
 </html>
@@ -25,7 +25,7 @@ const INDEX = `<!DOCTYPE html>
 func main() {
 	router := mux.NewRouter()
 	router.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
-		fmt.Fprintln(w, INDEX)
+		fmt.Fprintln(w, HTML)
 	})
 
 	log.Fatal(http.ListenAndServe(":"+os.Getenv("PORT"), router))
